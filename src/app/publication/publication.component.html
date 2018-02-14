@@ -1,0 +1,116 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Bootstrap Advance Admin Template</title>
+
+  <!-- BOOTSTRAP STYLES-->
+  <link href="assets/css/bootstrap.css" rel="stylesheet" />
+  <!-- FONTAWESOME STYLES-->
+  <link href="assets/css/font-awesome.css" rel="stylesheet" />
+  <!--CUSTOM BASIC STYLES-->
+  <link href="assets/css/basic.css" rel="stylesheet" />
+  <!--CUSTOM MAIN STYLES-->
+  <link href="assets/css/custom.css" rel="stylesheet" />
+  <!-- GOOGLE FONTS-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+
+<!-- /. NAV TOP  -->
+<nav class="navbar-default navbar-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav" id="main-menu">
+
+      <li class="active" ><a routerLink="/publication">Publication</a></li>
+      <li class="active" ><a routerLink="/creationPlan">Créer Plan</a></li>
+      <li class="active" ><a routerLink="/creationPlan">Chat</a></li>
+      <li class="active" ><a routerLink="/creationPlan">Profil</a></li>
+
+
+    </ul>
+  </div>
+
+</nav>
+<div id="page-wrapper">
+  <div id="page-inner">
+    <div class="row">
+
+      <h1><u>Liste de vos Plan:</u></h1>
+
+      <div class="col-md-8 col-sm-8 col-xs-8" *ngFor="let publication of publications">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+          Titre: {{publication.titre}}
+          </div>
+          <div class="panel-body">
+            <h2>{{publication.auteur.nom}} {{publication.auteur.prenom}}</h2>
+            <p>{{publication.daty | date: 'yyyy-MM-dd'}}</p>
+
+              <div class="form-group">
+                <label>Interêt</label>
+                <input disabled class="form-control" type="text" placeholder=" {{publication.interet.valeur}}">
+              </div>
+              <div class="form-group">
+                <label>Adresse</label>
+                <input disabled class="form-control" type="text" placeholder="{{publication.lieu.lieu}}">
+              </div>
+                <div class="form-group">
+                <label>Paff</label>
+                <input disabled class="form-control" type="text" placeholder="{{publication.paff}} Ar">
+              </div>
+                <div class="form-group">
+                <label>Detail</label>
+                <input disabled class="form-control" type="text" placeholder="{{publication.detail}}">
+              </div>
+
+
+              <button class="btn btn-danger" (click)="commenterPub(publication)">1 J'aime</button>
+              <button class="btn btn-danger col-md-offset-9">Commenter</button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            Titre
+          </div>
+          <div class="panel-body">
+
+            <div class="form-group">
+              <label>Date</label>
+              <input disabled class="form-control" type="date">
+            </div>
+            <div class="form-group">
+              <label>Interêt</label>
+              <input disabled class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label>Adresse</label>
+              <input disabled class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label>Paff</label>
+              <input disabled class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label>Detail</label>
+              <input disabled class="form-control" type="text">
+            </div>
+
+            <button class="btn btn-danger">1 J'aime</button>
+            <button class="btn btn-danger col-md-offset-9">Commenter</button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+</body>
